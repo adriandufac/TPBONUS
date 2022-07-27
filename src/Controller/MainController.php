@@ -15,7 +15,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/ajout",name="main_add")
+     * @Route("/ajoutProduit",name="main_add")
      */
     public function test(){
         return $this->render('main/ajout.html.twig');
