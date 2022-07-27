@@ -20,12 +20,12 @@ class Produit
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $libellé;
+    private $libelle;
 
     /**
      * @ORM\Column(type="string", length=10)
      */
-    private $référence;
+    private $reference;
 
     /**
      * @ORM\Column(type="float")
@@ -53,26 +53,26 @@ class Produit
         return $this->id;
     }
 
-    public function getLibellé(): ?string
+    public function getLibelle(): ?string
     {
-        return $this->libellé;
+        return $this->libelle;
     }
 
-    public function setLibellé(string $libellé): self
+    public function setLibelle(string $libelle): self
     {
-        $this->libellé = $libellé;
+        $this->libelle = $libelle;
 
         return $this;
     }
 
-    public function getRéférence(): ?string
+    public function getReference(): ?string
     {
-        return $this->référence;
+        return $this->reference;
     }
 
-    public function setRéférence(string $référence): self
+    public function setReference(string $reference): self
     {
-        $this->référence = $référence;
+        $this->reference = $reference;
 
         return $this;
     }

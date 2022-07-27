@@ -22,7 +22,7 @@ class Category
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $libellé;
+    private $libelle;
 
     /**
      * @ORM\Column(type="date")
@@ -44,14 +44,14 @@ class Category
         return $this->id;
     }
 
-    public function getLibellé(): ?string
+    public function getLibelle(): ?string
     {
-        return $this->libellé;
+        return $this->libelle;
     }
 
-    public function setLibellé(string $libellé): self
+    public function setLibelle(string $libelle): self
     {
-        $this->libellé = $libellé;
+        $this->libelle = $libelle;
 
         return $this;
     }
