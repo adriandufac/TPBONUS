@@ -23,11 +23,22 @@ class CategorieController extends AbstractController
      */
     public function ajout(Request $request,EntityManagerInterface $entityManager){
 
-        $Category = new Category();
+        $category = new Category();
         //creation du formulaire
-        $categoryForm = $this->createForm(CategoryType::class,$Category);
+        $categoryForm = $this->createForm(CategoryType::class,$category);
 
         $categoryForm->handleRequest($request);
+        //si on submit le formulaire
+        if($categoryForm->isSubmitted()){
+            //ajout de la catégorie en base
+            $category->setDateAjout(new \DateTime('@'.strtotime('now')));
+            $entityManager->persist($category);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'catégorie ajouté!');
+            //on affiche la liste des catégories
+            return $this->redirectToRoute('Categorie_list');
+        }
 
         //on envoit le formulaire a la page d'ajout de category
         return $this->render('categorie/ajoutcategorie.html.twig',['categoryForm' =>$categoryForm->createView()]);
