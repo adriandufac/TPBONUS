@@ -3,7 +3,9 @@
 {% block body %}
 
     <h2>La page liste des catégories</h2>
-
+    {% for categorie in categories %}
+    <div>{{ categorie.libelle }}</div>
+    {% endfor %}
 
 {% endblock %}
 
