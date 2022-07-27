@@ -2,8 +2,14 @@
 
 {% block body %}
 
-    <h2>La page d'ajout</h2>
 
+    <div>
+        <h2>La page d'ajout</h2>
+        {{ form_start(produitForm) }}
+        {{ form_widget(produitForm) }}
+        <button>Ajouter produit</button>
+        {{ form_end(produitForm) }}
+    </div>
 
 {% endblock %}
 
