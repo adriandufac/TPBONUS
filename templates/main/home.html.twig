@@ -4,8 +4,8 @@
 
     <h2>La page d'acceuil</h2>
     {% for produit in produits %}
-        <div><strong>{{ produit.libelle }}</strong>, catégorie : {{ produit.categorie.libelle }}, référence: {{ produit.reference }}, prix: {{ produit.prix }},
-            stock: {{ produit.stock }}, date d'ajout: {{ produit.getDateAjout()|date("d/m/y") }} </div>
+        <div><strong><a href="{{ path('produit_details',{'id':produit.id}) }}">{{ produit.libelle }}</a></strong></div>
+        <div>catégorie : {{ produit.categorie.libelle }}</div>
 
     {% endfor %}
 
