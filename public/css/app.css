@@ -1,0 +1,33 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+a:hover{
+    color: grey;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    margin-right: 1rem;
+}
+
+footer
+{
+    text-align:center;
+    position: fixed;
+    bottom:0;
+    width:100%;
+    display:inline-block;
+    vertical-align:top;
+    font-size:13px;
+}
