@@ -17,7 +17,7 @@ class ProduitController extends AbstractController
     /**
      * @Route("/ajoutProduit",name="produit_add")
      */
-    public function test(Request $request,EntityManagerInterface $entityManager){
+    public function add(Request $request,EntityManagerInterface $entityManager){
 
         $produit = new Produit();
         //creation du formulaire
@@ -48,6 +48,17 @@ class ProduitController extends AbstractController
     {
         $produit = $wishRepository->find($id);
         return $this->render('produit/details.html.twig',["produit" => $produit]);
+    }
+
+    /**
+     * @Route("/produitDelete/{id}", name="produit_delete")
+     */
+
+    public function delete(int $id,ProduitRepository $wishRepository,EntityManagerInterface $entityManager): Response
+    {
+         $entityManager->remove($wishRepository->find($id));
+         $entityManager->flush();
+         return $this->redirectToRoute('main_home');
     }
 
 }
