@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <h2>La page d'acceuil</h2>
+    <h2>Liste des produits</h2>
     {% for produit in produits %}
         <div><strong><a href="{{ path('produit_details',{'id':produit.id}) }}">{{ produit.libelle }}</a></strong></div>
         <div>catégorie : {{ produit.categorie.libelle }}</div>

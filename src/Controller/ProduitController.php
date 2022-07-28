@@ -61,4 +61,31 @@ class ProduitController extends AbstractController
          return $this->redirectToRoute('main_home');
     }
 
+    /**
+     * @Route("/produitEdit/{id}", name="produit_edit")
+     */
+
+    public function edit(Request $request,int $id,ProduitRepository $wishRepository,EntityManagerInterface $entityManager): Response
+    {
+        $produit =($wishRepository->find($id));
+
+        $produitForm = $this->createForm(ProduitType::class,$produit);
+
+        $produitForm->handleRequest($request);
+        //si on submit le formulaire
+        if($produitForm->isSubmitted()){
+            //ajout de la produit en base
+
+            $entityManager->persist($produit);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'produit modifié!');
+            //on affiche la liste des produits
+            return $this->redirectToRoute('main_home');
+        }
+
+        //on envoit le formulaire a la page d'ajout de category
+        return $this->render('produit/editproduit.html.twig',['produitForm' =>$produitForm->createView()]);
+    }
+
 }

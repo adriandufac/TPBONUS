@@ -2,14 +2,16 @@
 
 {% block body %}
 
-    <h2>page de detail</h2>
+    <h2>Detail</h2>
 
         <div><h3>{{ produit.libelle }}</h3> <strong> catégorie:</strong> {{ produit.categorie.libelle }}  <strong> référence:</strong> {{ produit.reference }}<strong> prix:</strong> {{ produit.prix }}
             <strong>  stock:</strong> {{ produit.stock }}, <strong> date d'ajout:</strong> {{ produit.getDateAjout()|date("d/m/y") }} </div>
     <form action="{{ path('produit_delete',{'id':produit.id}) }}">
         <button>delete </button>
     </form>
+    <form action="{{ path('produit_edit',{'id':produit.id}) }}">
     <button>edit</button>
+    </form>
 
 
 {% endblock %}
